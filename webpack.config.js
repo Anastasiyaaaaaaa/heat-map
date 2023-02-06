@@ -10,6 +10,9 @@ module.exports = {
         filename: '[name].[contenthash].js',
         path: path.resolve(__dirname, 'dist'),
     },
+    devServer: {
+        port: 3000
+    },
     plugins: [
         /** шаблон html, куда подключаем скрипты и стили */
         new HTMLWebpackPlugin({
