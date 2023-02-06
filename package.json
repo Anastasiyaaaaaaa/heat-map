@@ -8,6 +8,7 @@
         "dev": "webpack --mode development",
         "start": "webpack-dev-server --mode development --open"
     },
+    "browserslist": "> 0.25%, not dead",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Anastasiyaaaaaaa/heat-map.git"
@@ -26,6 +27,9 @@
     },
     "homepage": "https://github.com/Anastasiyaaaaaaa/heat-map#readme",
     "devDependencies": {
+        "@babel/core": "^7.20.12",
+        "@babel/preset-env": "^7.20.2",
+        "babel-loader": "^9.1.2",
         "clean-webpack-plugin": "^4.0.0",
         "html-webpack-plugin": "^5.5.0",
         "webpack": "^5.75.0",
