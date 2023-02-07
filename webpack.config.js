@@ -63,6 +63,10 @@ module.exports = {
                 ]
 
             },
+            { // картинки
+                test: /\.(jpg|png|svg|gif)$/,
+                type: 'asset/resource',
+            },
         ]
     }
 }
