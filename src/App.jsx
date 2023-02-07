@@ -8,14 +8,12 @@ import {
 } from 'react-router-dom'
 import { HeatMap } from './components/HeatMap'
 import { Content } from './components/Content'
+import { Header } from './components/Header'
 
 export const App = () => {
-    return  <div className='app'>
+    return <div className='app'>
         <Router>
-            <header>
-                <Link to='/'>Home</Link>
-                <Link to='/heat-map'>HeatMap</Link>
-            </header>
+            <Header />
 
             <Switch>
                 <Route path='/heat-map'>
@@ -27,5 +25,5 @@ export const App = () => {
             </Switch>
 
         </Router>
-    </div> 
+    </div>
 }
