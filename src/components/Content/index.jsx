@@ -19,7 +19,7 @@ export const Content = () => {
     },[setStart])
     
     const dispatch = useDispatch()
-    
+
     const handleClick = (event) => { 
         /** сохраняем координаты относительно изображения */
         dispatch(pushPoint({
@@ -29,6 +29,6 @@ export const Content = () => {
     }
 
     return <div className='content'>
-        <img onClick={handleClick} src={img} alt='Tiburon vc.ru' />
+        <img draggable='false' onClick={handleClick} src={img} alt='Tiburon vc.ru' />
     </div>
 }
