@@ -1,22 +1,31 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './style.css'
 import img from '../../img/cover.jpg'
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { pushPoint } from '../../redux/pointsSlice'
 
 export const Content = () => {
 
-    // const points = useSelector(state => state.points)
-    const dispatch = useDispatch()
+    const [start, setStart] = useState({})
+    
+    useEffect(() => {
+        const img = document.querySelector('.content img')
+        const imgPos = img.getBoundingClientRect() 
+        setStart({
+            x: imgPos.x,
+            y: imgPos.y
+        })
 
-    const handleClick = (event) => {
-        // console.log('X.value = ', event.pageX)
-        // console.log('Y.value = ', event.pageY)
+    },[setStart])
+    
+    const dispatch = useDispatch()
+    
+    const handleClick = (event) => { 
+        /** сохраняем координаты относительно изображения */
         dispatch(pushPoint({
-            x: event.pageX,
-            y: event.pageY
+            x: event.pageX - start.x,
+            y: event.pageY - start.y
         }))
-        // console.log(points)
     }
 
     return <div className='content'>
