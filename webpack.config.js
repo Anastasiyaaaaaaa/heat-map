@@ -13,6 +13,9 @@ module.exports = {
     devServer: {
         port: 3000
     },
+    resolve: {
+        extensions: ['.js', '.jsx']
+    },
     plugins: [
         /** шаблон html, куда подключаем скрипты и стили */
         new HTMLWebpackPlugin({
