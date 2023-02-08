@@ -16,7 +16,6 @@ export const drawHeatMap = (hashmap, maxClicks) => {
             const interval = palette[color]
             if (k > interval[0] && k <= interval[1]) {
                 pointsColor = color
-                console.log(points, k, pointsColor);
             }
         }
         points.forEach(point => drawDot(point, pointsColor))

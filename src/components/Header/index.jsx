@@ -1,6 +1,6 @@
 import React from 'react'
 import { 
-    Link
+    NavLink 
 } from 'react-router-dom'
 import './style.css'
 
@@ -9,10 +9,10 @@ export const Header = () => {
         <nav>
             <ul>
                 <li>
-                    <Link to='/'>Home</Link>
+                    <NavLink activeClassName={'nav-link-selected'} to='/home'>Home</NavLink >
                 </li>
                 <li>
-                    <Link to='/heat-map'>HeatMap</Link>
+                    <NavLink activeClassName={'nav-link-selected'} to='/heat-map'>HeatMap</NavLink >
                 </li>
             </ul>
         </nav>
