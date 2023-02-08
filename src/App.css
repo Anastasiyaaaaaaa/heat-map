@@ -5,5 +5,8 @@
 
 main {
     width: 1000px;
+    height: 525px;
+    background-image: url('./img/cover.jpg');
+    background-repeat: round;
     margin: 60px auto;
 }

@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { getHashKey } from './utils'
+import { getHash } from './utils'
 
 export const heatmapSlice = createSlice({
     name: 'heatmap',
@@ -21,22 +21,23 @@ export const heatmapSlice = createSlice({
             const x = action.payload.x - state.content.x
             const y = action.payload.y - state.content.y
 
-            const key = getHashKey(x, y)
+            const hash = getHash(x, y)
 
-            if (!(key in state.hashmap)) {
-                state.hashmap[key] = {
+            /* устанавливаем начальное значение, если появился новый хеш */
+            if (!(hash in state.hashmap)) {
+                state.hashmap[hash] = {
                     points: []
                 }
             }
 
-            // console.log(key, x, y)
-
-            state.hashmap[key].points.push({
+            /* добавляем новую точку */
+            state.hashmap[hash].points.push({
                 x: x,
                 y: y
             })
 
-            if (state.hashmap[key].points.length > state.maxClicks) {
+            /* обновляем максимум, если размер массива точек больше максимума */
+            if (state.hashmap[hash].points.length > state.maxClicks) {
                 state.maxClicks++
             }
         }

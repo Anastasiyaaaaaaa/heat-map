@@ -1,4 +1,4 @@
-export const step = 30
+export const step = 20
 export const palette = {
     'DarkRed': [0.9, 1],
     'Red': [0.7, 0.9],
@@ -6,5 +6,5 @@ export const palette = {
     'yellow': [0.3, 0.5],
     'green': [0.2, 0.3],
     'blue': [0.1, 0.2],
-    'Blue Whale': [0.0, 0.1],
+    'SlateBlue': [0.0, 0.1]
 }

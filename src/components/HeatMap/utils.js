@@ -5,17 +5,18 @@ export const drawHeatMap = (hashmap, maxClicks) => {
     const canvas = document.getElementById('canvas')
     const ctx = canvas.getContext('2d')
 
-    const max = maxClicks
+
 
     for (let hash in hashmap) {
-        const points = hashmap[hash].points
-        const k = points.length / max
-        let pointsColor
+        const points = hashmap[hash].points // массив точек
+        const k = points.length / maxClicks //коэффициент кликов относительно максимального значения
+        let pointsColor // цвет точек из одной области кликов
 
         for (let color in palette) {
             const interval = palette[color]
             if (k > interval[0] && k <= interval[1]) {
                 pointsColor = color
+                console.log(points, k, pointsColor);
             }
         }
         points.forEach(point => drawDot(point, pointsColor))

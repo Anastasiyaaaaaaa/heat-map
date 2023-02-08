@@ -8,7 +8,7 @@ export const HeatMap = () => {
     const state = useSelector(state => state.heatmap)
 
     useEffect(() => { 
-        //  console.log(state)
+        //   console.log(state)
         drawHeatMap(state.hashmap, state.maxClicks) 
     })
  

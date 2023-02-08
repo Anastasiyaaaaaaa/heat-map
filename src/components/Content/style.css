@@ -1,6 +1,9 @@
-.content {}
+.content {
+    height: inherit;
+}
 
-.content img {
+
+/* .content img {
     height: 525px;
     width: 100%;
-}
+} */
