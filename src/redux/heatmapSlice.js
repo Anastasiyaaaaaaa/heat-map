@@ -10,7 +10,6 @@ export const heatmapSlice = createSlice({
             x: 0,
             y: 0
         },
-        clicks: [],
         hashmap: {}
     },
     reducers: {
@@ -20,11 +19,6 @@ export const heatmapSlice = createSlice({
         pushPoint: (state, action) => {
             const x = action.payload.x - state.content.x
             const y = action.payload.y - state.content.y
-
-            state.clicks.push({
-                x: x,
-                y: y,
-            })
 
             const key = getHashKey(x, y)
 

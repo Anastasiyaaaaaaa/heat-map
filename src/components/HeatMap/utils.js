@@ -1,10 +1,13 @@
 import { step } from "../../constants";
 
-export const drawHeatMap = (clicks) => {
+export const drawHeatMap = (hashmap) => {
 
     let canvas = document.getElementById('canvas');
     let ctx = canvas.getContext('2d');
-    clicks.forEach(point => drawDot(point));
+    for (let key in hashmap) {
+        hashmap[key].points.forEach(point => drawDot(point))
+    }
+
     // ctx.stroke();
 
     function drawDot(dot) {

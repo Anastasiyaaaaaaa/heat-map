@@ -8,7 +8,7 @@ export const HeatMap = () => {
 
     useEffect(() => { 
         console.log(state)
-        drawHeatMap(state.clicks) 
+        drawHeatMap(state.hashmap) 
     })
  
     return <div className='heat-map'>  
