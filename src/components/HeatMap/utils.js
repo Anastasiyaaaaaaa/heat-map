@@ -1,17 +1,30 @@
-import { step } from "../../constants";
+import { step, palette } from "../../constants";
 
-export const drawHeatMap = (hashmap) => {
+export const drawHeatMap = (hashmap, maxClicks) => {
 
-    let canvas = document.getElementById('canvas');
-    let ctx = canvas.getContext('2d');
-    for (let key in hashmap) {
-        hashmap[key].points.forEach(point => drawDot(point))
+    const canvas = document.getElementById('canvas')
+    const ctx = canvas.getContext('2d')
+
+    const max = maxClicks
+
+    for (let hash in hashmap) {
+        const points = hashmap[hash].points
+        const k = points.length / max
+        let pointsColor
+
+        for (let color in palette) {
+            const interval = palette[color]
+            if (k > interval[0] && k <= interval[1]) {
+                pointsColor = color
+            }
+        }
+        points.forEach(point => drawDot(point, pointsColor))
     }
 
     // ctx.stroke();
 
-    function drawDot(dot) {
-        ctx.fillStyle = 'red';
+    function drawDot(dot, color) {
+        ctx.fillStyle = color;
         ctx.globalAlpha = 0.3;
         ctx.beginPath();
         ctx.arc(dot.x, dot.y, step / 2, 0, 2 * Math.PI, false);

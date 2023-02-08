@@ -10,7 +10,8 @@ export const heatmapSlice = createSlice({
             x: 0,
             y: 0
         },
-        hashmap: {}
+        hashmap: {},
+        maxClicks: 0
     },
     reducers: {
         setContent: (state, action) => {
@@ -28,10 +29,16 @@ export const heatmapSlice = createSlice({
                 }
             }
 
+            // console.log(key, x, y)
+
             state.hashmap[key].points.push({
                 x: x,
                 y: y
             })
+
+            if (state.hashmap[key].points.length > state.maxClicks) {
+                state.maxClicks++
+            }
         }
     }
 })
