@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react'
-import './style.css' 
+import './style.css'
 import { useDispatch } from 'react-redux'
 import { pushPoint, setContent } from '../../redux/heatmapSlice'
+import { NavLink } from 'react-router-dom'
 
 export const Content = () => {
 
@@ -27,6 +28,8 @@ export const Content = () => {
         }))
     }
 
-    return <div className='content' onClick={handleClick}>
-    </div>
+    return <>
+        <div className='content' onClick={handleClick}></div>
+        <NavLink className='page-link' to='/heat-map'>Далее</NavLink>
+    </>
 }
