@@ -1,3 +1,5 @@
+import { step } from "../../constants";
+
 export const drawHeatMap = (clicks) => {
 
     let canvas = document.getElementById('canvas');
@@ -9,7 +11,7 @@ export const drawHeatMap = (clicks) => {
         ctx.fillStyle = 'red';
         ctx.globalAlpha = 0.3;
         ctx.beginPath();
-        ctx.arc(dot.x, dot.y, 10, 0, 2 * Math.PI, false);
+        ctx.arc(dot.x, dot.y, step / 2, 0, 2 * Math.PI, false);
         ctx.fill();
     }
 }

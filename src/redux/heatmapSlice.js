@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { getHashKey } from './utils'
 
 export const heatmapSlice = createSlice({
     name: 'heatmap',
@@ -9,16 +10,33 @@ export const heatmapSlice = createSlice({
             x: 0,
             y: 0
         },
-        clicks: []
+        clicks: [],
+        hashmap: {}
     },
     reducers: {
         setContent: (state, action) => {
             state.content = action.payload
         },
         pushPoint: (state, action) => {
+            const x = action.payload.x - state.content.x
+            const y = action.payload.y - state.content.y
+
             state.clicks.push({
-                x: action.payload.x - state.content.x,
-                y: action.payload.y - state.content.y,
+                x: x,
+                y: y,
+            })
+
+            const key = getHashKey(x, y)
+
+            if (!(key in state.hashmap)) {
+                state.hashmap[key] = {
+                    points: []
+                }
+            }
+
+            state.hashmap[key].points.push({
+                x: x,
+                y: y
             })
         }
     }
