@@ -1,16 +1,18 @@
 import React, { useEffect } from 'react' 
 import { useSelector } from 'react-redux'
-import { drawHeatMap } from './utils'
+import { drawHeatMap } from './utils' 
 
 export const HeatMap = () => {
     
-    const coordinats = useSelector(state => state.points.coordinats)
+    // const state = useSelector(state => state.heatmap)
+    const clicks = useSelector(state => state.heatmap.clicks)
 
     useEffect(() => {
-        drawHeatMap(coordinats)
+        // console.log(state)
+        drawHeatMap(clicks) 
     })
  
-    return <div className='heat-map'>
+    return <div className='heat-map'>  
         <canvas id='canvas' width='1000px' height='500px'></canvas>
     </div>
 }

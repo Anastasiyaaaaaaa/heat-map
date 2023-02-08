@@ -1,30 +1,29 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import './style.css'
 import img from '../../img/cover.jpg'
 import { useDispatch } from 'react-redux'
-import { pushPoint } from '../../redux/pointsSlice'
+import { pushPoint, setContent } from '../../redux/heatmapSlice'
 
 export const Content = () => {
 
-    const [start, setStart] = useState({})
-    
-    useEffect(() => {
-        const img = document.querySelector('.content img')
-        const imgPos = img.getBoundingClientRect() 
-        setStart({
-            x: imgPos.x,
-            y: imgPos.y
-        })
-
-    },[setStart])
-    
     const dispatch = useDispatch()
 
-    const handleClick = (event) => { 
-        /** сохраняем координаты относительно изображения */
+    useEffect(() => { 
+        const img = document.querySelector('.content img')
+        const imgRect = img.getBoundingClientRect()
+        dispatch(setContent({
+            height: imgRect.height,
+            width: imgRect.width,
+            x: imgRect.x,
+            y: imgRect.y
+        })) 
+    }, [])
+
+
+    const handleClick = (event) => {
         dispatch(pushPoint({
-            x: event.pageX - start.x,
-            y: event.pageY - start.y
+            x: event.pageX,
+            y: event.pageY
         }))
     }
 

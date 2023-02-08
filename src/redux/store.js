@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit'
-import pointsReducer from './pointsSlice'
+import pointsReducer from './heatmapSlice'
 
 export default configureStore({
     reducer: {
-        points: pointsReducer
+        heatmap: pointsReducer
     }
 })
