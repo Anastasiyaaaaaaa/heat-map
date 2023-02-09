@@ -9,10 +9,10 @@ export const Header = () => {
         <nav>
             <ul>
                 <li>
-                    <NavLink activeClassName={'nav-link-selected'} to='/home'>Home</NavLink >
+                    <NavLink activeClassName='nav-link-selected' exact to='/'>Home</NavLink >
                 </li>
                 <li>
-                    <NavLink activeClassName={'nav-link-selected'} to='/heat-map'>HeatMap</NavLink >
+                    <NavLink activeClassName='nav-link-selected' to='/heat-map'>HeatMap</NavLink >
                 </li>
             </ul>
         </nav>

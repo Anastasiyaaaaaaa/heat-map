@@ -19,7 +19,7 @@ export const App = () => {
                     <Route path='/heat-map'>
                         <HeatMap />
                     </Route>
-                    <Route path='/home'>
+                    <Route path='/'>
                         <Content />
                     </Route>
                 </Switch>
