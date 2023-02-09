@@ -1,12 +1,13 @@
 .app {
-    width: 80%;
+    width: 70%;
     margin: 40px auto;
 }
 
 main {
-    width: 1000px;
-    height: 525px;
     background-image: url('./img/cover.jpg');
-    background-repeat: round;
-    margin: 60px auto;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    margin: 60px 0;
+    height: 550px;
 }
