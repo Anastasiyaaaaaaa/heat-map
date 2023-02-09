@@ -23,6 +23,6 @@ export const HeatMap = () => {
             <canvas id='canvas' width={state.content.width} height={state.content.height}></canvas>
         </div>
         <NavLink className='page-link' to='/'>Назад</NavLink>
-        <button type='button' onClick={handleClick}>Очистить</button>
+        <button className='btn_clean' type='button' onClick={handleClick}>Очистить</button>
     </>
 }
