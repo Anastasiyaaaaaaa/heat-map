@@ -17,6 +17,10 @@ export const heatmapSlice = createSlice({
         setContent: (state, action) => {
             state.content = action.payload
         },
+        cleanHeatMap: (state) => {
+            state.hashmap = {}
+            state.maxClicks = 0
+        },
         pushPoint: (state, action) => {
             const x = action.payload.x - state.content.x
             const y = action.payload.y - state.content.y
@@ -44,6 +48,6 @@ export const heatmapSlice = createSlice({
     }
 })
 
-export const { setContent, pushPoint } = heatmapSlice.actions
+export const { setContent, cleanHeatMap, pushPoint } = heatmapSlice.actions
 
 export default heatmapSlice.reducer
